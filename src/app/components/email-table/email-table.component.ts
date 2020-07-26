@@ -87,6 +87,10 @@ export class EmailTableComponent implements OnInit, OnDestroy {
     });
   }
 
+  toggleBody(email: EmailModel): void {
+    email.collapsed = !email.collapsed;
+  }
+
   get emailsLength(): number {
     return this.emails ? this.emails.length : 0;
   }

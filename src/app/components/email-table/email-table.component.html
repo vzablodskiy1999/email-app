@@ -12,68 +12,98 @@
           <span (click)="sortEmails('from')">
             From
           </span>
-          <svg class="table__sort" [class.table__sort--reverse]="sortReverse" *ngIf="sortedByFrom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 5"><path d="M8 5L3.993 0 0 5h8z"/></svg>
+          <svg class="table__sort" [class.table__sort--reverse]="sortReverse" *ngIf="sortedByFrom"
+               xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 5">
+            <path d="M8 5L3.993 0 0 5h8z"/>
+          </svg>
         </div>
         <div class="col-md-2 col-auto table__col">
           <span (click)="sortEmails('to')">
             To
           </span>
-          <svg class="table__sort" [class.table__sort--reverse]="sortReverse" *ngIf="sortedByTo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 5"><path d="M8 5L3.993 0 0 5h8z"/></svg>
+          <svg class="table__sort" [class.table__sort--reverse]="sortReverse" *ngIf="sortedByTo"
+               xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 5">
+            <path d="M8 5L3.993 0 0 5h8z"/>
+          </svg>
         </div>
         <div class="col-md-1 col-auto table__col" *ngIf="!isMobile"></div>
         <div class="col-md-5 col-auto table__col">
           <span (click)="sortEmails('subject')">
             Subject
           </span>
-          <svg class="table__sort" [class.table__sort--reverse]="sortReverse" *ngIf="sortedBySubject" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 5"><path d="M8 5L3.993 0 0 5h8z"/></svg>
+          <svg class="table__sort" [class.table__sort--reverse]="sortReverse" *ngIf="sortedBySubject"
+               xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 5">
+            <path d="M8 5L3.993 0 0 5h8z"/>
+          </svg>
         </div>
         <div class="col-md-2 col-auto table__col">
           <span (click)="sortEmails('date')">
             Date
           </span>
-          <svg class="table__sort" [class.table__sort--reverse]="sortReverse" *ngIf="sortedByDate" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 5"><path d="M8 5L3.993 0 0 5h8z"/></svg>
+          <svg class="table__sort" [class.table__sort--reverse]="sortReverse" *ngIf="sortedByDate"
+               xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 5">
+            <path d="M8 5L3.993 0 0 5h8z"/>
+          </svg>
         </div>
       </div>
       <div class="table__body">
-        <div class="row table__row" *ngFor="let email of emails" (click)="emailViewComponent.show(email)">
-          <div class="table__mobile-mail" *ngIf="isMobile">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11.351 26.357"><path d="M0 0v7.2h11.351V0zm9.905.8L5.675 4.35 1.446.8zM.8 6.4V1.302L5.42 5.178a.399.399 0 00.513 0l4.62-3.876V6.4zM3.55 13.766a.37.37 0 000 .521L5.68 16.43l2.14-2.139a.37.37 0 00-.521-.52l-1.25 1.244V12.22a.37.37 0 00-.738 0v2.807l-1.249-1.249a.37.37 0 00-.513-.01zM5.676 22.357a1.5 1.5 0 11-1.5 1.5 1.502 1.502 0 011.5-1.5m0-1a2.5 2.5 0 102.5 2.5 2.5 2.5 0 00-2.5-2.5z"/></svg>
-          </div>
-          <div class="col-md-2 col-auto table__col table__col--from">
-            <span>
-              {{email.from}}
-            </span>
-          </div>
-          <div class="col-md-2 col-auto table__col table__col--to">
-            <span>
-              {{formatRecipientString(email.to)}}
-            </span>
-          </div>
-          <div class="col-md-1 col-auto table__col table__col--mark">
-            <span *ngIf="isMoreThenOneRecipient(email.to)">
-              {{formatRecipientsCount(email.to)}}
-            </span>
-          </div>
-          <div class="col-md-5 col-auto table__col table__col--subject">
-            <span>
-              {{email.subject}}
-            </span>
-            <svg *ngIf="email.attachment && !isMobile" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13.931 15"><path d="M6.799 3.625a2.305 2.305 0 10-3.232 3.231l4.304 4.304a.522.522 0 00.739-.738L4.306 6.118c-.536-.536-.878-1.338-.231-1.985.645-.647 1.449-.304 1.985.232l4.972 4.971c1.906 1.909 2.382 2.788 1.246 3.925-1.149 1.148-2.367.864-4.201-.97L2.367 6.58C1.174 5.387.338 3.44 1.907 1.872c1.86-1.862 3.986-.032 4.592.575l5.11 5.112a.522.522 0 00.74-.739L7.237 1.71C5.186-.343 2.86-.562 1.167 1.133-.544 2.843-.36 5.33 1.628 7.318l5.711 5.71C7.967 13.658 9.312 15 10.858 15a3.012 3.012 0 002.16-1.002c2.075-2.076.155-3.998-1.246-5.401z"/></svg>
-          </div>
-          <div class="col-md-2 col-auto table__col table__col--date">
-            <div class="table__mobile-attachment" *ngIf="email.attachment && isMobile">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13.931 15"><path d="M6.799 3.625a2.305 2.305 0 10-3.232 3.231l4.304 4.304a.522.522 0 00.739-.738L4.306 6.118c-.536-.536-.878-1.338-.231-1.985.645-.647 1.449-.304 1.985.232l4.972 4.971c1.906 1.909 2.382 2.788 1.246 3.925-1.149 1.148-2.367.864-4.201-.97L2.367 6.58C1.174 5.387.338 3.44 1.907 1.872c1.86-1.862 3.986-.032 4.592.575l5.11 5.112a.522.522 0 00.74-.739L7.237 1.71C5.186-.343 2.86-.562 1.167 1.133-.544 2.843-.36 5.33 1.628 7.318l5.711 5.71C7.967 13.658 9.312 15 10.858 15a3.012 3.012 0 002.16-1.002c2.075-2.076.155-3.998-1.246-5.401z"/></svg>
+        <div class="row table__row" *ngFor="let email of emails" (click)="toggleBody(email)">
+          <div class="table-email__description">
+            <div class="table__mobile-mail" *ngIf="isMobile">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11.351 26.357">
+                <path
+                  d="M0 0v7.2h11.351V0zm9.905.8L5.675 4.35 1.446.8zM.8 6.4V1.302L5.42 5.178a.399.399 0 00.513 0l4.62-3.876V6.4zM3.55 13.766a.37.37 0 000 .521L5.68 16.43l2.14-2.139a.37.37 0 00-.521-.52l-1.25 1.244V12.22a.37.37 0 00-.738 0v2.807l-1.249-1.249a.37.37 0 00-.513-.01zM5.676 22.357a1.5 1.5 0 11-1.5 1.5 1.502 1.502 0 011.5-1.5m0-1a2.5 2.5 0 102.5 2.5 2.5 2.5 0 00-2.5-2.5z"/>
+              </svg>
             </div>
-            <span>
-              {{formatDate(email.date)}}
-            </span>
-            <div class="table__mobile-date" *ngIf="isMobile">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2.988 6"><path d="M2.988 3.008a.29.29 0 01-.073.193L.513 5.902a.29.29 0 01-.435-.385l2.231-2.51L.08.49A.29.29 0 01.502.092l.01.011 2.402 2.712a.29.29 0 01.073.193z"/></svg>
+            <div class="col-md-2 col-auto table__col table__col--from">
+              <span title="{{email.from}}">
+                {{email.from}}
+              </span>
+            </div>
+            <div class="col-md-2 col-auto table__col table__col--to">
+              <span title="{{email.to}}">
+                {{formatRecipientString(email.to)}}
+              </span>
+            </div>
+            <div class="col-md-1 col-auto table__col table__col--mark">
+              <span *ngIf="isMoreThenOneRecipient(email.to)">
+                {{formatRecipientsCount(email.to)}}
+              </span>
+            </div>
+            <div class="col-md-5 col-auto table__col table__col--subject">
+              <span title="{{email.subject}}">
+                {{email.subject}}
+              </span>
+              <svg *ngIf="email.attachment && !isMobile" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13.931 15">
+                <path
+                  d="M6.799 3.625a2.305 2.305 0 10-3.232 3.231l4.304 4.304a.522.522 0 00.739-.738L4.306 6.118c-.536-.536-.878-1.338-.231-1.985.645-.647 1.449-.304 1.985.232l4.972 4.971c1.906 1.909 2.382 2.788 1.246 3.925-1.149 1.148-2.367.864-4.201-.97L2.367 6.58C1.174 5.387.338 3.44 1.907 1.872c1.86-1.862 3.986-.032 4.592.575l5.11 5.112a.522.522 0 00.74-.739L7.237 1.71C5.186-.343 2.86-.562 1.167 1.133-.544 2.843-.36 5.33 1.628 7.318l5.711 5.71C7.967 13.658 9.312 15 10.858 15a3.012 3.012 0 002.16-1.002c2.075-2.076.155-3.998-1.246-5.401z"/>
+              </svg>
+            </div>
+            <div class="col-md-2 col-auto table__col table__col--date">
+              <div class="table__mobile-attachment" *ngIf="email.attachment && isMobile">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13.931 15">
+                  <path
+                    d="M6.799 3.625a2.305 2.305 0 10-3.232 3.231l4.304 4.304a.522.522 0 00.739-.738L4.306 6.118c-.536-.536-.878-1.338-.231-1.985.645-.647 1.449-.304 1.985.232l4.972 4.971c1.906 1.909 2.382 2.788 1.246 3.925-1.149 1.148-2.367.864-4.201-.97L2.367 6.58C1.174 5.387.338 3.44 1.907 1.872c1.86-1.862 3.986-.032 4.592.575l5.11 5.112a.522.522 0 00.74-.739L7.237 1.71C5.186-.343 2.86-.562 1.167 1.133-.544 2.843-.36 5.33 1.628 7.318l5.711 5.71C7.967 13.658 9.312 15 10.858 15a3.012 3.012 0 002.16-1.002c2.075-2.076.155-3.998-1.246-5.401z"/>
+                </svg>
+              </div>
+              <span title="{{formatDate(email.date)}}">
+                {{formatDate(email.date)}}
+              </span>
+              <div class="table__mobile-date" *ngIf="isMobile">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2.988 6">
+                  <path
+                    d="M2.988 3.008a.29.29 0 01-.073.193L.513 5.902a.29.29 0 01-.435-.385l2.231-2.51L.08.49A.29.29 0 01.502.092l.01.011 2.402 2.712a.29.29 0 01.073.193z"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="table-email__body" *ngIf="email.collapsed">
+            <div class="col-12">
+              {{ email.body }}
             </div>
           </div>
         </div>
       </div>
     </div>
   </ng-template>
-  <email-view #emailViewComponent></email-view>
 </div>
