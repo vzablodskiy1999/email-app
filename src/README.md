@@ -12,6 +12,8 @@ In the case of a test project I realized to make it only with styles. I made thi
 
 Also, I made a decision to use svg code instead of making a font, that is because of the font's bad accessibility.
 
+Before I noticed that user should have a possibility to read 2 email at time I implemented another way to show email for user. If you are interested you can check vault/email-view branch.
+
 Other stuff was pretty easy to deal with. Of course, project`s code is not in the condition to post in production, and ,in my opinion, it should be refactored, but I just try to make my best in the shortest time. Things I would change in the code I will describe in the improvement document.
 
 Best regards
