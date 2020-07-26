@@ -161,6 +161,18 @@
     line-height: 1.1;
   }
 
+  .table-email__description {
+    position: relative;
+    height: auto;
+    padding: 12px 8px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .table-email__body {
+    font-size: 0.9rem;
+  }
+
   .table__header .table__col {
     position: relative;
     padding-right: 17px;
