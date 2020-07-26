@@ -1,0 +1,18 @@
+<label class="datepicker__wrapper" [attr.aria-disabled]="disableComponent">
+  <span class="datepicker__icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.862 18">
+      <path
+        d="M18.776 1.862H16.76v1.241h1.862V16.76H1.24V3.103h1.863V1.862H1.086A1.105 1.105 0 000 2.985v13.892A1.105 1.105 0 001.086 18h17.69a1.105 1.105 0 001.086-1.123V2.985a1.105 1.105 0 00-1.086-1.123z"/>
+      <path
+        d="M3.724 6.828h1.241v1.241H3.724zM7.448 6.828h1.241v1.241H7.448zM11.173 6.828h1.241v1.241h-1.241zM14.897 6.828h1.241v1.241h-1.241zM3.724 9.931h1.241v1.241H3.724zM7.448 9.931h1.241v1.241H7.448zM11.173 9.931h1.241v1.241h-1.241zM14.897 9.931h1.241v1.241h-1.241zM3.724 13.034h1.241v1.241H3.724zM7.448 13.034h1.241v1.241H7.448zM11.173 13.034h1.241v1.241h-1.241zM14.897 13.034h1.241v1.241h-1.241zM4.966 4.345a.62.62 0 00.62-.62V.62a.62.62 0 10-1.241 0v3.103a.62.62 0 00.62.62zM14.897 4.345a.62.62 0 00.62-.62V.62a.62.62 0 10-1.24 0v3.103a.62.62 0 00.62.62zM6.828 1.862h6.207v1.241H6.828z"/>
+    </svg>
+  </span>
+  <input type="text" class="datepicker" [(bsValue)]="datepickerValue" [bsConfig]="datepickerConfig"
+         [disabled]="disableComponent" bsDaterangepicker readonly/>
+</label>
+<button class="datepicker__action" [disabled]="disableComponent" (click)="handleClick()">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17.98 18">
+    <path
+      d="M17.817 17.04l-4.95-4.976a7.33 7.33 0 10-.795.796l4.946 4.974a.563.563 0 10.799-.794zM7.325 13.474a6.16 6.16 0 01-6.166-6.155v-.005a6.16 6.16 0 116.166 6.16z"/>
+  </svg>
+</button>

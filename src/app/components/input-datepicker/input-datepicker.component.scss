@@ -1,0 +1,75 @@
+@import "../../../assets/styles/vars";
+
+$datepicker-icon-size: 20px;
+$datepicker-height: 40px;
+$datepicker-width: 308px;
+$datepicker-action-width: 44px;
+
+:host {
+  display: flex;
+}
+
+.datepicker__wrapper {
+  position: relative;
+}
+
+.datepicker {
+  width: $datepicker-width;
+  height: $datepicker-height;
+  border-bottom-left-radius: 8px;
+  border-top-left-radius: 8px;
+  border: 1px solid $neutral;
+  padding: 0 8px 0 48px;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+    border-color: $neutral-dark;
+  }
+}
+
+.datepicker__icon {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.datepicker__icon svg {
+  width: $datepicker-icon-size;
+}
+
+.datepicker__action {
+  height: $datepicker-height;
+  width: $datepicker-action-width;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid $neutral;
+  border-left: 0;
+  background: $neutral-light;
+  border-bottom-right-radius: 8px;
+  border-top-right-radius: 8px;
+  transition: background-color .3s;
+  cursor: pointer;
+
+  &:hover {
+    background: transparentize($neutral, 0.5);
+  }
+
+  &:disabled {
+    pointer-events: none;
+  }
+}
+
+.datepicker__action svg {
+  width: $datepicker-icon-size;
+}
+
+@media screen and (max-width: 768px) {
+  .datepicker {
+    width: 260px;
+  }
+}

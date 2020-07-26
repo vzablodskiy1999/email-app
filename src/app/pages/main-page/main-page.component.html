@@ -1,0 +1,5 @@
+<div class="container page-container">
+  <input-datepicker (onDateChange)="updateSelectedDate($event)" [disableComponent]="isLoading"
+                    [datepickerValue]="selectedDates"></input-datepicker>
+  <email-table [emails]="emails"></email-table>
+</div>

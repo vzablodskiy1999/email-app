@@ -119,6 +119,12 @@
           }
         }
       }
-    }},
-  "defaultProject": "email-app"
+    }
+  },
+  "defaultProject": "email-app",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
+  }
 }
