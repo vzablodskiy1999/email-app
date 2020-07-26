@@ -5,4 +5,5 @@ export interface EmailModel {
   body: string,
   date: Date,
   attachment?: any;
+  collapsed?: boolean;
 }

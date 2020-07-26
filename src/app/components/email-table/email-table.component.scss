@@ -40,9 +40,9 @@
 }
 
 .table__row {
+  min-height: 44px;
   display: flex;
   align-items: center;
-  min-height: 44px;
   margin: 0;
 
   &:not(:last-child) {
@@ -130,10 +130,16 @@
   }
 }
 
-.table__mobile-mail,
-.table__mobile-date,
-.table__mobile-attachment {
-  display: none;
+.table-email__description {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+}
+
+.table-email__body {
+  margin: 8px 0;
+  color: $dark;
 }
 
 @media screen and (max-width: 768px) {
